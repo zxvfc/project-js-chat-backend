@@ -1,15 +1,15 @@
 start:
-	npm start
+	pnpm start
 
 install:
-	npm i
+	pnpm i
 
 publish:
-	npm publish --access=public
+	pnpm publish --access=public
 
 # TODO: добавить линтеры и тесты
 lint:
-	npx eslint .
+	pnpx eslint .
 
 test:
 	echo no tests

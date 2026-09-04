@@ -1,6 +1,6 @@
 // @ts-check
 
-import fastifySocketIo from 'fastify-socket.io';
+import fastifySocketIo from '@wick_studio/fastify-socket.io';
 import fastifyStatic from '@fastify/static';
 import fastifyJWT from '@fastify/jwt';
 import HttpErrors from 'http-errors';
@@ -34,9 +34,10 @@ const setUpAuth = (app) => {
     });
 };
 
-export default async (app, options = { staticPath: 'build' }) => {
+export default async (app, options) => {
+  // const { staticPath = 'build', ...rest } = options ?? {};
   setUpAuth(app);
-  setUpStaticAssets(app, options.staticPath);
+  // setUpStaticAssets(app, options.staticPath);
   await app.register(fastifySocketIo);
   addRoutes(app, options?.state || {});
 
