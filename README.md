@@ -9,20 +9,8 @@ make install
 ## Run
 
 ```sh
-$ make start
+make start
 # curl http://localhost:5001/api/v1/data
-```
-
-## Install npm-package
-
-```bash
-npm i @hexlet/chat-server
-```
-
-## Run npm-package
-
-```bash
-npx start-server
 ```
 
 ## Usage
