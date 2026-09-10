@@ -7,6 +7,41 @@ const { Unauthorized, Conflict } = HttpErrors;
 
 const getNextId = () => Number(_.uniqueId());
 
+const FRONTEND_URL = process.env.FRONTEND_URL || '#';
+const BACKEND_REPO_URL = process.env.BACKEND_REPO_URL || '#';
+const FRONTEND_REPO_URL = process.env.FRONTEND_REPO_URL || '#';
+const PORT = process.env.PORT || 5001;
+
+const LANDING_PAGE = `<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>Chat Backend</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background:#0f1115; color:#e6e6e6; display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; }
+    .card { max-width: 420px; padding: 2rem; }
+    h1 { font-size: 1.4rem; margin-bottom: .5rem; }
+    p { color:#a0a0a0; line-height:1.5; }
+    a { color:#7dd3fc; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    ul { padding-left: 1.1rem; margin: 1.2rem 0 0; }
+    li { margin-bottom: .4rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Chat Backend</h1>
+    <p>API-сервер учебного мессенджера. Интерфейс развёрнут отдельно.</p>
+    <p class="meta">Сервер и Socket.IO работают на порту ${PORT}</p>
+    <ul>
+      <li><a href="${FRONTEND_URL}">Открыть приложение</a></li>
+      <li><a href="${BACKEND_REPO_URL}">Код бэкенда</a></li>
+      <li><a href="${FRONTEND_REPO_URL}">Код фронтенда</a></li>
+    </ul>
+  </div>
+</body>
+</html>`;
+
 const buildState = (defaultState) => {
   const generalChannelId = getNextId();
   const randomChannelId = getNextId();
@@ -138,6 +173,6 @@ export default (app, defaultState = {}) => {
 
   app
     .get('/', (_req, reply) => {
-      reply.sendFile('index.html');
+      reply.type('text/html; charset=utf-8').send(LANDING_PAGE);
     });
 };

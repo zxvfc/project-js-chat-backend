@@ -16,7 +16,7 @@ const setUpStaticAssets = (app, buildPath) => {
   });
 
   app.setNotFoundHandler((req, res) => {
-    res.sendFile('index.html');
+    res.code(404).send({ error: 'not found' });
   });
 };
 
