@@ -1,7 +1,6 @@
 // @ts-check
 
 import fastifySocketIo from '@wick_studio/fastify-socket.io';
-import fastifyStatic from '@fastify/static';
 import fastifyJWT from '@fastify/jwt';
 import HttpErrors from 'http-errors';
 import fastifyCors from '@fastify/cors';
@@ -36,9 +35,7 @@ const setUpAuth = (app) => {
 };
 
 export default async (app, options) => {
-  // const { staticPath = 'build', ...rest } = options ?? {};
   setUpAuth(app);
-  // setUpStaticAssets(app, options.staticPath);
   await app.register(fastifyCors, {
     origin: '*',
   });
