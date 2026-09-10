@@ -9,7 +9,7 @@
     "start-server": "./bin/index.js"
   },
   "scripts": {
-    "start": "pnpm exec fastify start src/plugin.js -l info -P -a 0.0.0.0 -p 5001"
+    "start": "pnpm exec fastify start src/plugin.js -l info -P -a 0.0.0.0 -p ${PORT:-5001}"
   },
   "author": "",
   "license": "ISC",

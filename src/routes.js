@@ -32,7 +32,7 @@ const LANDING_PAGE = `<!doctype html>
   <div class="card">
     <h1>Chat Backend</h1>
     <p>API-сервер учебного мессенджера. Интерфейс развёрнут отдельно.</p>
-    <p class="meta">Сервер и Socket.IO работают на порту ${PORT}</p>
+    <p class="meta">Сервер и Socket.IO работают на порту <code>${PORT}</code></p>
     <ul>
       <li><a href="${FRONTEND_URL}">Открыть приложение</a></li>
       <li><a href="${BACKEND_REPO_URL}">Код бэкенда</a></li>
