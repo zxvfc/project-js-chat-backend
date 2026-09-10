@@ -10,9 +10,8 @@ const getNextId = () => Number(_.uniqueId());
 const FRONTEND_URL = process.env.FRONTEND_URL || '#';
 const BACKEND_REPO_URL = process.env.BACKEND_REPO_URL || '#';
 const FRONTEND_REPO_URL = process.env.FRONTEND_REPO_URL || '#';
-const PORT = process.env.PORT || 5001;
 
-const LANDING_PAGE = `<!doctype html>
+const renderLanding = (port) => `<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
@@ -32,7 +31,7 @@ const LANDING_PAGE = `<!doctype html>
   <div class="card">
     <h1>Chat Backend</h1>
     <p>API-сервер учебного мессенджера. Интерфейс развёрнут отдельно.</p>
-    <p class="meta">Сервер и Socket.IO работают на порту <code>${PORT}</code></p>
+    <p class="meta">Сервер и Socket.IO работают на порту <code>${port}</code></p>
     <ul>
       <li><a href="${FRONTEND_URL}" target="_blank">Открыть приложение</a></li>
       <li><a href="${BACKEND_REPO_URL}" target="_blank">Код бэкенда</a></li>
@@ -173,6 +172,7 @@ export default (app, defaultState = {}) => {
 
   app
     .get('/', (_req, reply) => {
-      reply.type('text/html; charset=utf-8').send(LANDING_PAGE);
+      const { port } = app.server.address();
+      reply.type('text/html; charset=utf-8').send(renderLanding(port));
     });
 };
