@@ -34,9 +34,9 @@ const LANDING_PAGE = `<!doctype html>
     <p>API-сервер учебного мессенджера. Интерфейс развёрнут отдельно.</p>
     <p class="meta">Сервер и Socket.IO работают на порту <code>${PORT}</code></p>
     <ul>
-      <li><a href="${FRONTEND_URL}">Открыть приложение</a></li>
-      <li><a href="${BACKEND_REPO_URL}">Код бэкенда</a></li>
-      <li><a href="${FRONTEND_REPO_URL}">Код фронтенда</a></li>
+      <li><a href="${FRONTEND_URL}" target="_blank">Открыть приложение</a></li>
+      <li><a href="${BACKEND_REPO_URL}" target="_blank">Код бэкенда</a></li>
+      <li><a href="${FRONTEND_REPO_URL}" target="_blank">Код фронтенда</a></li>
     </ul>
   </div>
 </body>
